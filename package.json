@@ -1,0 +1,23 @@
+{
+  "name": "fofosdk",
+  "version": "1.0.0",
+  "description": "Repository for the client side FoFo Network SDK.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:connection:dev": "ts-node ./src/index.ts --test-connection",
+    "test:connection:prod": "ts-node ./src/index.ts --test-connection --prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.4.0"
+  }
+}
