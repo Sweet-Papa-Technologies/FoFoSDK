@@ -1,5 +1,6 @@
 import { getServerConfig, resourceType } from "../config/servers";
 import axios, { AxiosError } from 'axios';
+import { log } from "../logger";
 
 export class clsFoFoAptos {
     constructor() {
@@ -16,18 +17,18 @@ export class clsFoFoAptos {
 
             if (response.status === 200 || response.status === 201) {
                 bReachable = true
-                console.log("Server is reachable")
+                log("Server is reachable", 'checkIfAptosServerIsReachable', 'info')
             }
 
-            console.log(response.data)
-            console.log(response.status)
+            
+            log(response.status, 'checkIfAptosServerIsReachable', 'info')
 
 
 
         }).catch((error:AxiosError) => {  
-            console.log("Failed to reach the server") 
-            console.log(error.message)                 
-            console.log(error.code)
+            log("Failed to reach the server", 'checkIfAptosServerIsReachable', 'error') 
+            log(error.message, 'checkIfAptosServerIsReachable', 'error')                 
+            log(error.code || 'No error code', 'checkIfAptosServerIsReachable', 'error')
         })
 
         return bReachable
