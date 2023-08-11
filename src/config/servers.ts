@@ -12,6 +12,7 @@ export interface ServerConfig {
 export interface AptosServerConfig extends ServerConfig {
     apiURL: string
     networkID: string | number
+    faucetURL?: string
 }
 
 export interface IndyServerConfig extends ServerConfig {
@@ -27,18 +28,19 @@ export const defaultServerConfig = {
             resource: 'aptos',
             environment: 'prod',
             apiURL: `https://fofonetwork.com:8080/v1`,
-            networkID: '180',
+            networkID: '181',
             testEndpoint: 'https://fofonetwork.com:8080/v1/healthcheck'
 
         },
         {
             name: 'fofonetwork-aptos-dev',
-            ip: '0.0.0.0',
+            ip: '127.0.0.1',
             port: 8080,
             resource: 'aptos',
             environment: 'dev',
             apiURL: `http://localhost:8080/v1`,
-            networkID: '181',
+            networkID: '180',
+            faucetURL: 'http://localhost:8081',
             testEndpoint: 'http://localhost:8080/v1/transactions'
         },
         {

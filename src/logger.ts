@@ -36,7 +36,7 @@ export function log(sLog: string | number, sFunction = 'none', sLogLevel: loglev
     }
   }
 
-  const message = `\n[${sTimestamp}][${color}${sLogLevel.toUpperCase()}${resetColor}] [${sFunction.toUpperCase()}] ${sLog} ${emoji}\n`;
+  const message = `\n${emoji} - [${sTimestamp}][${color}${sLogLevel.toUpperCase()}${resetColor}] [${sFunction}] ${sLog}\n`;
 
   console.log(message);
 }

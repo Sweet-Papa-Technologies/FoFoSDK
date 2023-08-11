@@ -2,11 +2,15 @@
   "name": "fofosdk",
   "version": "1.0.0",
   "description": "Repository for the client side FoFo Network SDK.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "dev": "ts-node",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:connection:dev": "ts-node ./src/index.ts --test-connection",
-    "test:connection:prod": "ts-node ./src/index.ts --test-connection --prod"
+    "test:connection:prod": "ts-node ./src/index.ts --test-connection --prod",
+    "build:dev": "tsc",
+    "setup:aptos-cli:ps": "iwr `https://aptos.dev/scripts/install_cli.py` -useb | Select-Object -ExpandProperty Content | python3",
+    "setup:aptos-cli:sh": "curl -fsSL 'https://aptos.dev/scripts/install_cli.py' | python3"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +22,7 @@
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "aptos": "^1.13.2",
     "axios": "^1.4.0"
   }
 }

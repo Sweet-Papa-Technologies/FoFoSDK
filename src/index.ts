@@ -11,16 +11,19 @@ const args = process.argv.slice(2)
 
 // Check to see if the user wants to run in dev mode
 const bDevMode = args.includes("--prod") === false
-
 const bTestConnection = args.includes("--test-connection")
 
 // run the SDK in an async function
-async function runSDK() {
+async function runSDKArgs() {
     // If the user wants to test the connection, then we can do that here
     if (bTestConnection === true) {
         const clsAptos = new clsFoFoAptos()
-        clsAptos.checkIfAptosServerIsReachable(bDevMode === true ? 'dev' : 'prod')
+        clsAptos.checkIfAptosServerIsReachable()
     }
 }
 
-runSDK()
+runSDKArgs()
+
+export default {
+    clsFoFoAptos
+}
