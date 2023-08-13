@@ -1,6 +1,7 @@
 // Entry point for the SDK
 
 import { clsFoFoAptos } from "./aptos"
+import { generateFoFoNetworkContent } from "./aptos/transactions"
 
 // let us load different things based on the argments passed to the SDK
 // If the user wants to test server connectivity, they can pass: --test-connection
@@ -24,6 +25,15 @@ async function runSDKArgs() {
 
 runSDKArgs()
 
-export default {
-    clsFoFoAptos
+const exportObj = {
+    clsFoFoAptos,
+    generateFoFoNetworkContent
 }
+
+export {
+    clsFoFoAptos,
+    generateFoFoNetworkContent
+}
+ 
+
+export default exportObj

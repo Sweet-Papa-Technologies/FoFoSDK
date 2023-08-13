@@ -1,4 +1,5 @@
 import { apiEndpoints, AptosServerConfig, getServerConfig, IndyServerConfig, resourceType, ServerConfig } from "../config/servers";
+
 import axios, { AxiosError } from 'axios';
 import { log } from "../logger";
 import { AptosAccount, AptosAccountObject, AptosClient } from "aptos";
@@ -6,6 +7,7 @@ import loadAccount from "./accounts/loadAccount";
 import { apiCallerPublic } from "../api";
 import { encryptString, kyberHandshaker } from '@fofonet/crypto';
 import getAccountTransactions from "./accounts/getAccountTransactions";
+
 
 export interface FoFoNetExchangeKeyObj {
     publicKey: string | number[];
@@ -89,7 +91,7 @@ export class clsFoFoAptos {
         return newAccount.toPrivateKeyObject()
     }
 
-    async loadAAptosAccountFromObject(accountObj:AptosAccountObject) {
+    async loadAptosAccountFromObject(accountObj:AptosAccountObject) {
         const account = AptosAccount
         return account.fromAptosAccountObject(accountObj)
     }
@@ -149,7 +151,7 @@ export class clsFoFoAptos {
     async geTransactionsForAccount(accountObj:AptosAccountObject): Promise<any> {
 
    
-        const aptosAccount = await this.loadAAptosAccountFromObject(accountObj)
+        const aptosAccount = await this.loadAptosAccountFromObject(accountObj)
 
         if (!this.client){
             log("No client found", 'geTransactionsForAccount', 'error')
