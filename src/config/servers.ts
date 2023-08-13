@@ -1,3 +1,5 @@
+import { postType } from "../api"
+
 export type resourceType = 'aptos' | 'indy' | 'fofo'
 
 export interface ServerConfig {
@@ -19,11 +21,25 @@ export interface IndyServerConfig extends ServerConfig {
     nodeName: string
 }
 
+
+export const apiEndpoints = {
+    fofo: {
+        'handshake': {
+            endpoint: '/handshake',
+            method: 'POST' as postType
+        },
+        'create-account':{
+            endpoint: '/create-account',
+            method: 'POST' as postType
+        }
+    }
+}
+
 export const defaultServerConfig = {
     servers: [
         {
             name: 'fofonetwork-aptos-prod',
-            ip: '192.168.1.1',
+            ip: 'localhost',
             port: 8080,
             resource: 'aptos',
             environment: 'prod',
@@ -34,7 +50,7 @@ export const defaultServerConfig = {
         },
         {
             name: 'fofonetwork-aptos-dev',
-            ip: '127.0.0.1',
+            ip: 'localhost',
             port: 8080,
             resource: 'aptos',
             environment: 'dev',
@@ -45,7 +61,7 @@ export const defaultServerConfig = {
         },
         {
             name: 'fofonetwork-dev',
-            ip: '0.0.0.0',
+            ip: 'localhost',
             port: 8080,
             resource: 'indy',
             environment: 'dev',
@@ -53,10 +69,18 @@ export const defaultServerConfig = {
         },
         {
             name: 'fofonetwork',
-            ip: '0.0.0.0',
+            ip: 'localhost',
             port: 8080,
             resource: 'indy',
             environment: 'prod',
+            nodeName: 'Fofo1'
+        },
+        {
+            name: 'fofonetwork-api-dev',
+            ip: 'localhost',
+            port: 3000,
+            resource: 'fofo',
+            environment: 'dev',
             nodeName: 'Fofo1'
         },
 

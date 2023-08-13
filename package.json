@@ -1,5 +1,5 @@
 {
-  "name": "fofosdk",
+  "name": "@fofonet/fofosdk",
   "version": "1.0.0",
   "description": "Repository for the client side FoFo Network SDK.",
   "main": "dist/index.js",
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:connection:dev": "ts-node ./src/index.ts --test-connection",
     "test:connection:prod": "ts-node ./src/index.ts --test-connection --prod",
-    "build:dev": "tsc",
+    "build": "tsc",
     "setup:aptos-cli:ps": "iwr `https://aptos.dev/scripts/install_cli.py` -useb | Select-Object -ExpandProperty Content | python3",
     "setup:aptos-cli:sh": "curl -fsSL 'https://aptos.dev/scripts/install_cli.py' | python3"
   },
@@ -21,6 +21,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@fofonet/crypto": "^1.0.0-beta.5",
     "@types/axios": "^0.14.0",
     "aptos": "^1.13.2",
     "axios": "^1.4.0"
